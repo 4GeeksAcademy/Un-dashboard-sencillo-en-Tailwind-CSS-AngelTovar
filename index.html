@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<!-- ======================================================================
+     IMPORTANTE PARA EL COPILOTO / IA:
+     Este proyecto usa ÚNICA y EXCLUSIVAMENTE:
+       - HTML5
+       - Tailwind CSS v4 (vía CDN: @tailwindcss/browser@4)
+     
+     NO USAR:
+       - JavaScript / TypeScript / Node.js
+       - Frameworks (React, Vue, Angular, Svelte, etc.)
+       - Build tools (Webpack, Vite, Parcel, etc.)
+       - Tailwind v3 (snippets obsoletos como @apply, @tailwind, theme(), etc.)
+       - CSS plano ni archivos .css externos
+       - Preprocesadores CSS (Sass, Less, PostCSS)
+       - Ninguna otra tecnología o dependencia
+     ====================================================================== -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Ingresos — Influencer</title>
+    <meta name="description" content="Panel de ingresos para influencer con comisiones, productos y rendimiento por red social.">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-[#2A2F63] text-[#E3F6F5] antialiased">
+
+    <!-- ==============================================================
+         SKIP LINK — Salta al contenido principal (accesibilidad)
+         ============================================================== -->
+    <nav aria-label="Navegación rápida">
+        <a href="#contenido-principal" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-[#5FB0C9] focus:text-[#E3F6F5] focus:px-4 focus:py-2 focus:rounded focus:text-sm focus:font-semibold focus:outline-none focus:ring-4 focus:ring-[#A7E0DB]">
+            Saltar al contenido principal
+        </a>
+    </nav>
+
+    <!-- ==============================================================
+         BARRA DE NAVEGACIÓN SUPERIOR
+         ============================================================== -->
+    <header class="bg-[#3E6D9C] border-b border-[#5FB0C9] sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14 sm:h-16">
+                <!-- Logo y título -->
+                <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <span class="text-xl sm:text-2xl shrink-0" aria-hidden="true">📊</span>
+                    <h1 class="text-sm sm:text-base md:text-lg font-bold text-[#E3F6F5] truncate">
+                        Dashboard de Ingresos — Influencer
+                    </h1>
+                </div>
+
+                <!-- Info del usuario -->
+                <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+                    <span class="hidden xs:inline-flex sm:flex items-center gap-1 text-xs sm:text-sm text-[#A7E0DB]">
+                        <span aria-hidden="true">📅</span>
+                        <time datetime="2026-07">Jul 2026</time>
+                    </span>
+                    <span role="img" aria-label="Avatar: Angel Tovar" tabindex="0" class="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 bg-[#5FB0C9] text-[#E3F6F5] rounded-full text-[10px] sm:text-xs font-bold focus:outline-none focus:ring-2 focus:ring-[#A7E0DB] focus:ring-offset-2 cursor-default">AT</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==============================================================
+         CONTENIDO PRINCIPAL
+         ============================================================== -->
+    <main id="contenido-principal" tabindex="-1" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 space-y-6 sm:space-y-8">
+
+        <!-- ==============================================================
+             BLOQUE 1: INDICADORES PRINCIPALES (KPI)
+             ============================================================== -->
+        <section aria-labelledby="heading-kpi" class="scroll-mt-20">
+            <h2 id="heading-kpi" class="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#A7E0DB] uppercase tracking-wider mb-3 sm:mb-4 border-l-4 border-[#5FB0C9] pl-3">
+                    <span aria-hidden="true">📈</span> Indicadores Clave: ¿Cuánto estoy ganando?
+                </h2>
+
+            <!-- MOBILE: scroll horizontal con snap -->
+            <ul class="flex snap-x snap-mandatory overflow-x-auto gap-3 pb-2 -mx-4 px-4
+                       sm:grid sm:grid-cols-2 sm:overflow-x-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-4
+                       lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7">
+                <!-- Cada KPI -->
+<li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ventas Totales: 7 mil 690 euros, subió 22% respecto al mes anterior">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Ventas</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]" aria-label="7 mil 690 euros">€7,690</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">22%</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">ingresos brutos · 3 productos</p>
+                </li>
+
+                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Comisión 15 por ciento: mil 154 euros, subió 22%">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Comisión 15%</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">€1,154</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">22%</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">tus ganancias · 15% comisión</p>
+                </li>
+
+                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto A 50 euros: 45 unidades vendidas, subió 8%">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto A (50€)</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">45 uds</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">8%</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">€2,250 en ventas · comisión €338</p>
+                </li>
+
+                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto B 120 euros: 22 unidades vendidas, subió 15%">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto B (120€)</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">22 uds</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">15%</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">€2,640 en ventas · comisión €396</p>
+                </li>
+
+                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto C 80 euros: 35 unidades vendidas, subió 12%">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto C (80€)</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">35 uds</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">12%</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">€2,800 en ventas · comisión €420</p>
+                </li>
+
+                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ticket Medio: 75 euros con 40 céntimos, subió 3%">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Ticket Medio</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">€75.40</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">3%</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">precio medio por unidad</p>
+                </li>
+
+                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto Estrella: Producto C con 2 mil 800 euros en ventas">
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">⭐ Producto Estrella</p>
+                    <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">Prod. C</p>
+                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">€2,800</span>
+                        <span class="text-[#A7E0DB] hidden xs:inline">en ventas</span>
+                    </div>
+                    <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">producto que más vende · 80€/ud</p>
+                </li>
+            </ul>
+            <!-- Indicador de scroll (solo móvil) -->
+            <p class="text-[10px] text-[#A7E0DB] text-center mt-2 sm:hidden animate-pulse" aria-hidden="true">← Desliza para ver más →</p>
+        </section>
+
+        <!-- Separador visual entre Bloques 1 y 2 -->
+        <hr class="border-t-2 border-dashed border-[#5FB0C9]" aria-hidden="true">
+
+        <!-- ==============================================================
+             BLOQUE 2: DRIVERS (FACTORES QUE EXPLICAN EL RESULTADO)
+             ============================================================== -->
+        <section aria-labelledby="heading-drivers" class="scroll-mt-20">
+            <h2 id="heading-drivers" class="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#A7E0DB] uppercase tracking-wider mb-3 sm:mb-4 border-l-4 border-[#5FB0C9] pl-3">
+                    <span aria-hidden="true">🔍</span> Drivers: ¿Qué producto vende más?
+                </h2>
+
+            <!-- Fila 1: Funnel + Plataforma + Calidad -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
+
+                <!-- Conversión por etapas (funnel) -->
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Funnel de ventas">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">📊</span> Embudo de Ventas
+                    </h3>
+                    <div class="space-y-2 sm:space-y-3">
+                        <!-- Interesados -->
+                        <div>
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#A7E0DB] mb-0.5">
+                                <span id="etapa-impresiones">Interesados</span>
+                                <span aria-labelledby="etapa-impresiones">1,250</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="100 por ciento completado">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        <!-- Carritos -->
+                        <div>
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#A7E0DB] mb-0.5">
+                                <span id="etapa-clics">Carritos</span>
+                                <span aria-labelledby="etapa-clics">384</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="30.7 por ciento">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 30.7%"></div>
+                            </div>
+                        </div>
+                        <!-- Compras -->
+                        <div>
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#A7E0DB] mb-0.5">
+                                <span id="etapa-leads">Compras</span>
+                                <span aria-labelledby="etapa-leads">102</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="26.6 por ciento">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 26.6%"></div>
+                            </div>
+                        </div>
+                        <!-- Recompra -->
+                        <div>
+                            <div class="flex justify-between text-[11px] sm:text-xs text-[#A7E0DB] mb-0.5">
+                                <span id="etapa-conversiones">Recompra</span>
+                                <span aria-labelledby="etapa-conversiones">24</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="23.5 por ciento">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 23.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-[#A7E0DB] mt-3">Tasa conversión global: <span class="font-semibold text-[#E3F6F5]">8.2%</span></p>
+                </article>
+
+                <!-- Rendimiento por plataforma -->
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Rendimiento por plataforma">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">📱</span> Ventas por Plataforma
+                    </h3>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span aria-hidden="true" class="text-base sm:text-lg">📸</span>
+                                    <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">Instagram</span>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-[#5FB0C9]">€3,845</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="Instagram 50 por ciento de ventas">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 50%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span aria-hidden="true" class="text-base sm:text-lg">🎵</span>
+                                    <span class="text-xs sm:text-sm font-medium">TikTok</span>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-green-600">€2,307</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="TikTok 30 por ciento de ventas">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span aria-hidden="true" class="text-base sm:text-lg">▶️</span>
+                                    <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">YouTube</span>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-[#A7E0DB]">€1,154</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="YouTube 15 por ciento de ventas">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 15%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center gap-2">
+                                    <span aria-hidden="true" class="text-base sm:text-lg">💼</span>
+                                    <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">LinkedIn</span>
+                                </div>
+                                <span class="text-xs sm:text-sm font-bold text-[#5FB0C9]">€384</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="LinkedIn 5 por ciento de ventas">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Calidad -->
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 md:col-span-2 lg:col-span-1 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Distribución de ventas">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">📊</span> Distribución de Ventas
+                    </h3>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm mb-1">
+                                <span class="text-[#A7E0DB]">Producto A (50€)</span>
+                                <span class="font-semibold text-[#E3F6F5]">29%</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="Producto A 29 por ciento">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 29%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm mb-1">
+                                <span class="text-[#A7E0DB]">Producto B (120€)</span>
+                                <span class="font-semibold text-[#E3F6F5]">34%</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="Producto B 34 por ciento">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 34%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs sm:text-sm mb-1">
+                                <span class="text-[#A7E0DB]">Producto C (80€) ⭐</span>
+                                <span class="font-semibold text-[#E3F6F5]">37%</span>
+                            </div>
+                            <div class="w-full bg-[#2A2F63] rounded-full h-2 sm:h-2.5" role="img" aria-label="Producto C 37 por ciento">
+                                <div class="bg-[#5FB0C9] h-2 sm:h-2.5 rounded-full" style="width: 37%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Fila 2: Producto + Actividad + Engagement -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+
+                <!-- Rendimiento por producto -->
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Rendimiento por producto">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">🏷️</span> Rendimiento por Producto
+                    </h3>
+                    <ul class="space-y-1 sm:space-y-3">
+                        <li class="flex items-center justify-between py-1.5 sm:py-2 border-b border-[#5FB0C9]/30">
+                            <span class="text-xs sm:text-sm text-[#E3F6F5]">Producto A (50€)</span>
+                            <span class="text-xs sm:text-sm font-semibold text-[#5FB0C9]">€2,250</span>
+                        </li>
+                        <li class="flex items-center justify-between py-1.5 sm:py-2 border-b border-[#5FB0C9]/30">
+                            <span class="text-xs sm:text-sm text-[#E3F6F5]">Producto B (120€)</span>
+                            <span class="text-xs sm:text-sm font-semibold text-[#5FB0C9]">€2,640</span>
+                        </li>
+                        <li class="flex items-center justify-between py-1.5 sm:py-2">
+                            <span class="text-xs sm:text-sm text-[#E3F6F5]">Producto C (80€) ⭐</span>
+                            <span class="text-xs sm:text-sm font-semibold text-[#5FB0C9]">€2,800</span>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Actividad -->
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Actividad por producto">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">📤</span> Desglose por Producto
+                    </h3>
+                    <ul class="space-y-2 sm:space-y-3">
+                        <li class="flex flex-col xs:flex-row xs:items-center gap-1 xs:gap-3 text-xs sm:text-sm">
+                            <span class="font-medium text-[#A7E0DB] w-24 shrink-0">Producto A</span>
+                            <span class="flex flex-wrap gap-1">
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">45 uds</span>
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">€2,250</span>
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">com. €338</span>
+                            </span>
+                        </li>
+                        <li class="flex flex-col xs:flex-row xs:items-center gap-1 xs:gap-3 text-xs sm:text-sm">
+                            <span class="font-medium text-[#A7E0DB] w-24 shrink-0">Producto B</span>
+                            <span class="flex flex-wrap gap-1">
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">22 uds</span>
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">€2,640</span>
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">com. €396</span>
+                            </span>
+                        </li>
+                        <li class="flex flex-col xs:flex-row xs:items-center gap-1 xs:gap-3 text-xs sm:text-sm">
+                            <span class="font-medium text-[#A7E0DB] w-24 shrink-0">Producto C ⭐</span>
+                            <span class="flex flex-wrap gap-1">
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">35 uds</span>
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">€2,800</span>
+                                <span class="bg-[#2A2F63] text-[#A7E0DB] px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-xs">com. €420</span>
+                            </span>
+                        </li>
+                    </ul>
+                </article>
+
+                <!-- Engagement por plataforma -->
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Engagement por plataforma">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">❤️</span> Engagement por Plataforma
+                    </h3>
+                    <div class="space-y-3 sm:space-y-4">
+                        <div class="flex flex-col xs:flex-row xs:items-center justify-between gap-1">
+                            <div class="flex items-center gap-2">
+                                <span aria-hidden="true" class="text-base sm:text-lg">📸</span>
+                                <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">Instagram</span>
+                            </div>
+                            <ul class="flex flex-wrap items-center gap-1.5 sm:gap-3 text-[10px] sm:text-xs text-[#A7E0DB]" aria-label="Interacciones de Instagram">
+                                <li>❤️ 2.4K</li>
+                                <li>💬 342</li>
+                                <li>🔁 156</li>
+                                <li>💾 89</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col xs:flex-row xs:items-center justify-between gap-1">
+                            <div class="flex items-center gap-2">
+                                <span aria-hidden="true" class="text-base sm:text-lg">🎵</span>
+                                <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">TikTok</span>
+                            </div>
+                            <ul class="flex flex-wrap items-center gap-1.5 sm:gap-3 text-[10px] sm:text-xs text-[#A7E0DB]" aria-label="Interacciones de TikTok">
+                                <li>❤️ 5.8K</li>
+                                <li>💬 1.2K</li>
+                                <li>🔁 892</li>
+                                <li>💾 234</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col xs:flex-row xs:items-center justify-between gap-1">
+                            <div class="flex items-center gap-2">
+                                <span aria-hidden="true" class="text-base sm:text-lg">▶️</span>
+                                <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">YouTube</span>
+                            </div>
+                            <ul class="flex flex-wrap items-center gap-1.5 sm:gap-3 text-[10px] sm:text-xs text-[#A7E0DB]" aria-label="Interacciones de YouTube">
+                                <li>❤️ 1.1K</li>
+                                <li>💬 89</li>
+                                <li>🔁 45</li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col xs:flex-row xs:items-center justify-between gap-1">
+                            <div class="flex items-center gap-2">
+                                <span aria-hidden="true" class="text-base sm:text-lg">💼</span>
+                                <span class="text-xs sm:text-sm font-medium text-[#E3F6F5]">LinkedIn</span>
+                            </div>
+                            <ul class="flex flex-wrap items-center gap-1.5 sm:gap-3 text-[10px] sm:text-xs text-[#A7E0DB]" aria-label="Interacciones de LinkedIn">
+                                <li>❤️ 567</li>
+                                <li>💬 123</li>
+                                <li>🔁 78</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Separador visual entre Bloques 2 y 3 -->
+        <hr class="border-t-2 border-dashed border-[#5FB0C9]" aria-hidden="true">
+
+        <!-- ==============================================================
+             BLOQUE 3: DETALLES OPERACIONALES
+             ============================================================== -->
+        <section aria-labelledby="heading-operacional" class="scroll-mt-20">
+            <h2 id="heading-operacional" class="flex items-center gap-2 text-xs sm:text-sm font-bold text-[#A7E0DB] uppercase tracking-wider mb-3 sm:mb-4 border-l-4 border-[#5FB0C9] pl-3">
+                    <span aria-hidden="true">📋</span> Detalles: ¿Cuánto gano por producto?</h2>
+
+            <!-- Alertas -->
+            <section class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 mb-4 sm:mb-6" aria-labelledby="heading-alertas">
+                <h3 id="heading-alertas" class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                    <span aria-hidden="true">🚨</span> Alertas y Anomalías
+                </h3>
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <li class="flex items-start gap-3 bg-[#2A2F63] border border-red-400/40 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-red-400" tabindex="0" role="alert" aria-label="Alerta: Producto B bajo en ventas">
+                        <span aria-hidden="true" class="text-red-400 text-base sm:text-lg shrink-0 mt-0.5">⚠️</span>
+                        <div>
+                            <p class="text-xs sm:text-sm font-medium text-red-300">Producto B con pocas ventas</p>
+                            <p class="text-[10px] sm:text-xs text-red-400">Solo 22 uds vendidas · Considera promocionar más</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-[#2A2F63] border border-[#5FB0C9]/40 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#5FB0C9]" tabindex="0" role="alert" aria-label="Alerta: Producto C es el más vendido">
+                        <span aria-hidden="true" class="text-[#5FB0C9] text-base sm:text-lg shrink-0 mt-0.5">⚡</span>
+                        <div>
+                            <p class="text-xs sm:text-sm font-medium text-[#A7E0DB]">Producto C es el más vendido</p>
+                            <p class="text-[10px] sm:text-xs text-[#5FB0C9]">35 uds · €2,800 en ingresos · Sigue así</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-[#2A2F63] border border-yellow-500/30 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-yellow-400" tabindex="0" role="alert" aria-label="Alerta: 102 unidades totales este mes">
+                        <span aria-hidden="true" class="text-yellow-400 text-base sm:text-lg shrink-0 mt-0.5">⚙️</span>
+                        <div>
+                            <p class="text-xs sm:text-sm font-medium text-yellow-300">102 unidades vendidas este mes</p>
+                            <p class="text-[10px] sm:text-xs text-yellow-400">Objetivo: 120 uds · Acumulado 85% de la meta</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 bg-[#2A2F63] border border-[#5FB0C9]/40 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" role="alert" aria-label="Alerta: Oportunidad subir precio Producto A">
+                        <span aria-hidden="true" class="text-[#A7E0DB] text-base sm:text-lg shrink-0 mt-0.5">📊</span>
+                        <div>
+                            <p class="text-xs sm:text-sm font-medium text-[#E3F6F5]">Oportunidad: subir precio A</p>
+                            <p class="text-[10px] sm:text-xs text-[#A7E0DB]">Producto A muy demandado (45 uds) · valor percibido alto</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Tablas -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
+
+                <!-- Tabla de productos -->
+                <section class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Tabla de productos">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">🏷️</span> Productos
+                    </h3>
+                    <div class="overflow-x-auto -mx-4 sm:mx-0">
+                        <div class="inline-block min-w-full align-middle px-4 sm:px-0">
+                            <table class="min-w-full text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de productos con precio, unidades, ingresos y comisión">
+                                <thead>
+                                    <tr class="border-b border-[#5FB0C9]/30 text-[#A7E0DB] uppercase">
+                                        <th scope="col" class="text-left py-2 pr-2 font-semibold">Producto</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">Precio</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">Unid.</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">Ingresos</th>
+                                        <th scope="col" class="text-right py-2 pl-1 sm:pl-2 font-semibold">Tu 15%</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">Producto A</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€50</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">45</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€2,250</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€338</td>
+                                    </tr>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">Producto B</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€120</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">22</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€2,640</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€396</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">Producto C ⭐</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€80</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">35</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€2,800</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€420</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tabla de plataformas -->
+                <section class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Tabla de plataformas">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">📱</span> Plataformas
+                    </h3>
+                    <div class="overflow-x-auto -mx-4 sm:mx-0">
+                        <div class="inline-block min-w-full align-middle px-4 sm:px-0">
+                            <table class="min-w-full text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de plataformas con ventas, unidades y comisión">
+                                <thead>
+                                    <tr class="border-b border-[#5FB0C9]/30 text-[#A7E0DB] uppercase">
+                                        <th scope="col" class="text-left py-2 pr-2 font-semibold">Plataforma</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">Ventas</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">%</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">Comisión</th>
+                                        <th scope="col" class="text-right py-2 pl-1 sm:pl-2 font-semibold">Rend.</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]" aria-label="Instagram">📸 Instagram</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€3,845</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">50%</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€577</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9] font-semibold">Alto</td>
+                                    </tr>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]" aria-label="TikTok">🎵 TikTok</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€2,307</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">30%</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€346</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9] font-semibold">Alto</td>
+                                    </tr>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]" aria-label="YouTube">▶️ YouTube</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€1,154</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">15%</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€173</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#A7E0DB] font-semibold">Medio</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]" aria-label="LinkedIn">💼 LinkedIn</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">€384</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#A7E0DB]">5%</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">€58</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#A7E0DB] font-semibold">Bajo</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tabla de campañas -->
+                <section class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Tabla de productos por plataforma">
+                    <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
+                        <span aria-hidden="true">📢</span> Producto Favorito x Plataforma
+                    </h3>
+                    <div class="overflow-x-auto -mx-4 sm:mx-0">
+                        <div class="inline-block min-w-full align-middle px-4 sm:px-0">
+                            <table class="min-w-[320px] text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de qué producto se vende más en cada plataforma">
+                                <thead>
+                                    <tr class="border-b border-[#5FB0C9]/30 text-[#A7E0DB] uppercase">
+                                        <th scope="col" class="text-left py-2 pr-2 font-semibold">Plataforma</th>
+                                        <th scope="col" class="text-left py-2 px-1 sm:px-2 font-semibold">Producto Top</th>
+                                        <th scope="col" class="text-right py-2 px-1 sm:px-2 font-semibold">Uds</th>
+                                        <th scope="col" class="text-right py-2 pl-1 sm:pl-2 font-semibold">Ingresos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">📸 Instagram</td>
+                                        <td class="py-2 px-1 sm:px-2 text-[#A7E0DB]">Producto A</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">22</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€1,100</td>
+                                    </tr>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">🎵 TikTok</td>
+                                        <td class="py-2 px-1 sm:px-2 text-[#A7E0DB]">Producto C</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">15</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€1,200</td>
+                                    </tr>
+                                    <tr class="border-b border-[#5FB0C9]/20 hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">▶️ YouTube</td>
+                                        <td class="py-2 px-1 sm:px-2 text-[#A7E0DB]">Producto B</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">8</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€960</td>
+                                    </tr>
+                                    <tr class="hover:bg-[#2A2F63]/50 focus-within:bg-[#2A2F63]/50">
+                                        <td class="py-2 pr-2 font-medium text-[#E3F6F5]">💼 LinkedIn</td>
+                                        <td class="py-2 px-1 sm:px-2 text-[#A7E0DB]">Producto B</td>
+                                        <td class="text-right py-2 px-1 sm:px-2 text-[#5FB0C9]">4</td>
+                                        <td class="text-right py-2 pl-1 sm:pl-2 text-[#5FB0C9]">€480</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Listados con filtros -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Top Productos">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-[#A7E0DB] uppercase mb-2 sm:mb-3 pb-1.5 border-b border-[#5FB0C9]">🏆 Top Productos</h4>
+                    <ol class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-[#E3F6F5]">
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">1. Producto C</span><span class="text-[#5FB0C9] shrink-0">€2,800</span></li>
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">2. Producto B</span><span class="text-[#5FB0C9] shrink-0">€2,640</span></li>
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">3. Producto A</span><span class="text-[#5FB0C9] shrink-0">€2,250</span></li>
+                    </ol>
+                </article>
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Top Plataformas">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-[#A7E0DB] uppercase mb-2 sm:mb-3 pb-1.5 border-b border-[#5FB0C9]">📱 Resumen</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-[#E3F6F5]">
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">Total ventas</span><span class="text-[#5FB0C9] shrink-0">€7,690</span></li>
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">Comisión 15%</span><span class="text-[#5FB0C9] shrink-0">€1,154</span></li>
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">Unidades</span><span class="text-[#5FB0C9] shrink-0">102</span></li>
+                    </ul>
+                </article>
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Top Campañas">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-[#A7E0DB] uppercase mb-2 sm:mb-3 pb-1.5 border-b border-[#5FB0C9]">🏆 Más Vendido</h4>
+                    <ol class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-[#E3F6F5]">
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">1. Producto C (80€)</span><span class="text-[#5FB0C9] shrink-0">€2,800</span></li>
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">2. Producto B (120€)</span><span class="text-[#5FB0C9] shrink-0">€2,640</span></li>
+                        <li class="flex items-center justify-between gap-1"><span class="font-medium truncate">3. Producto A (50€)</span><span class="text-[#5FB0C9] shrink-0">€2,250</span></li>
+                    </ol>
+                </article>
+                <article class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="Oportunidades">
+                    <h4 class="text-[10px] sm:text-xs font-bold text-[#A7E0DB] uppercase mb-2 sm:mb-3 pb-1.5 border-b border-[#5FB0C9]">💡 Recomendaciones</h4>
+                    <ul class="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-[#E3F6F5]">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#5FB0C9] mt-0.5 shrink-0" aria-hidden="true">→</span>
+                            <span>Promocionar más Producto B (menos ventas)</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#5FB0C9] mt-0.5 shrink-0" aria-hidden="true">→</span>
+                            <span>Subir precio del Producto A (alta demanda)</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#5FB0C9] mt-0.5 shrink-0" aria-hidden="true">→</span>
+                            <span>Crear pack combo A+B para aumentar ticket</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==============================================================
+         PIE DE PÁGINA
+         ============================================================== -->
+    <footer class="border-t border-[#5FB0C9]/30 mt-6 sm:mt-8 py-4 sm:py-6 text-center text-[10px] sm:text-xs text-[#A7E0DB]">
+        <p>Panel de Ingresos · Julio 2026 · Datos simulados para demostración · Comisión 15%</p>
+    </footer>
+
+</body>
+</html>
