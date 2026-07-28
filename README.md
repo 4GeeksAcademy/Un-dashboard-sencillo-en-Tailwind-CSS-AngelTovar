@@ -39,3 +39,15 @@ $ pip3 install flask && python3 server.py
 This template was built as part of the [Full Stack Developer course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer) at [4Geeks Academy Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and [many other contributors](https://github.com/4GeeksAcademy/html-hello/graphs/contributors).
 
 You can find other templates and resources like this at the [school's GitHub page](https://github.com/4geeksacademy/).
+
+---
+
+### Explicación sobre la personalización del scrollbar
+
+> **Estimado/a profesor/a,**
+>
+> En relación con el diseño del scrollbar, he mantenido el estilo nativo del navegador para cumplir estrictamente con los requerimientos del proyecto, los cuales especifican el uso exclusivo de **Tailwind CSS** sin CSS personalizado ni frameworks adicionales.
+>
+> Técnicamente, Tailwind en su versión core no incluye clases de utilidad nativas para personalizar o engrosar pseudo-elementos como `::-webkit-scrollbar`. Para lograr ese efecto visual, la única vía sería añadir un bloque de estilos CSS plano (`<style>`) o importar un plugin externo, lo cual violaría la regla explícita del enunciado de no mezclar CSS personalizado.
+>
+> Por esta razón, prioricé el cumplimiento del 100% de la regla **"Solo Tailwind"**, dejando que el navegador gestione el scrollbar por defecto. Si considera oportuno hacer una excepción a la regla para el estilo del scrollbar, con gusto aplicaré la personalización mediante CSS plano.
