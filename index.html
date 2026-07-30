@@ -21,8 +21,13 @@
     <title>Dashboard de Ingresos — Influencer</title>
     <meta name="description" content="Panel de ingresos para influencer con comisiones, productos y rendimiento por red social.">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        /* Ocultar barra de scroll en móvil para el carrusel KPI */
+        .scroll-mobile::-webkit-scrollbar { display: none; }
+        .scroll-mobile { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
 </head>
-<body class="bg-[#2A2F63] text-[#E3F6F5] antialiased">
+<body class="bg-[#2A2F63] text-[#E3F6F5] antialiased overflow-x-hidden max-w-full">
 
     <!-- ==============================================================
          SKIP LINK — Salta al contenido principal (accesibilidad)
@@ -72,15 +77,110 @@
                     <span aria-hidden="true">📈</span> Indicadores Clave: ¿Cuánto estoy ganando?
                 </h2>
 
-            <!-- MOBILE: scroll horizontal con snap -->
-            <ul class="flex snap-x snap-mandatory overflow-x-auto gap-3 pb-2 -mx-4 px-4
-                       sm:grid sm:grid-cols-2 sm:overflow-x-visible sm:mx-0 sm:px-0 sm:pb-0 sm:gap-4
+            <!-- MOBILE: solo 1 KPI a la vez, con flechas < > a los lados por fuera -->
+            <div class="sm:hidden flex items-center gap-1 max-w-full">
+                <!-- Flecha anterior -->
+                <button onclick="var ul=this.parentElement.querySelector('ul'),card=ul.querySelector('li'),w=card?card.offsetWidth+12:ul.offsetWidth;ul.scrollBy({left:-w,behavior:'smooth'})"
+                        class="shrink-0 w-7 h-7 flex items-center justify-center
+                               text-[#A7E0DB] hover:text-[#E3F6F5]
+                               transition-all duration-200
+                               focus:outline-none focus:text-[#E3F6F5]"
+                        aria-label="Anterior indicador">
+                    <span class="text-lg font-bold leading-none" aria-hidden="true">&lt;</span>
+                </button>
+
+                <ul class="flex-1 flex snap-x snap-mandatory overflow-x-auto gap-0 scroll-mobile">
+                    <!-- Cada KPI ocupa todo el ancho disponible -->
+<li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ventas Totales: 7 mil 690 euros, subió 22% respecto al mes anterior">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">Ventas</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]" aria-label="7 mil 690 euros">€7,690</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">22%</span>
+                        <span class="text-[#A7E0DB]">vs mes ant.</span>
+                    </div>
+                </li>
+
+                <li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Comisión 15 por ciento: mil 154 euros, subió 22%">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">Comisión 15%</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]">€1,154</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">22%</span>
+                        <span class="text-[#A7E0DB]">vs mes ant.</span>
+                    </div>
+                </li>
+
+                <li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto A 50 euros: 45 unidades vendidas, subió 8%">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto A (50€)</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]">45 uds</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">8%</span>
+                        <span class="text-[#A7E0DB]">vs mes ant.</span>
+                    </div>
+                </li>
+
+                <li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto B 120 euros: 22 unidades vendidas, subió 15%">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto B (120€)</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]">22 uds</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">15%</span>
+                        <span class="text-[#A7E0DB]">vs mes ant.</span>
+                    </div>
+                </li>
+
+                <li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto C 80 euros: 35 unidades vendidas, subió 12%">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto C (80€)</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]">35 uds</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">12%</span>
+                        <span class="text-[#A7E0DB]">vs mes ant.</span>
+                    </div>
+                </li>
+
+                <li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ticket Medio: 75 euros con 40 céntimos, subió 3%">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">Ticket Medio</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]">€75.40</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">3%</span>
+                        <span class="text-[#A7E0DB]">vs mes ant.</span>
+                    </div>
+                </li>
+
+                <li class="snap-start shrink-0 w-full bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-3 text-center focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto Estrella: Producto C con 2 mil 800 euros en ventas">
+                    <p class="text-[10px] text-[#A7E0DB] uppercase font-semibold tracking-wider">⭐ Producto Estrella</p>
+                    <p class="text-lg font-bold mt-0.5 text-[#E3F6F5]">Prod. C</p>
+                    <div class="flex items-center justify-center gap-1 text-[10px] text-[#5FB0C9] mt-0.5">
+                        <span aria-hidden="true">↑</span>
+                        <span class="font-semibold">€2,800</span>
+                        <span class="text-[#A7E0DB]">en ventas</span>
+                    </div>
+                </li>
+                </ul>
+
+                <!-- Flecha siguiente -->
+                <button onclick="var ul=this.parentElement.querySelector('ul'),card=ul.querySelector('li'),w=card?card.offsetWidth+12:ul.offsetWidth;ul.scrollBy({left:w,behavior:'smooth'})"
+                        class="shrink-0 w-7 h-7 flex items-center justify-center
+                               text-[#A7E0DB] hover:text-[#E3F6F5]
+                               transition-all duration-200
+                               focus:outline-none focus:text-[#E3F6F5]"
+                        aria-label="Siguiente indicador">
+                    <span class="text-lg font-bold leading-none" aria-hidden="true">&gt;</span>
+                </button>
+            </div>
+
+            <!-- DESKTOP/TABLET: grid normal con todos los KPI visibles -->
+            <ul class="hidden sm:grid sm:grid-cols-2 sm:overflow-x-visible sm:gap-4
                        lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7">
                 <!-- Cada KPI -->
-<li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ventas Totales: 7 mil 690 euros, subió 22% respecto al mes anterior">
+<li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ventas Totales: 7 mil 690 euros, subió 22% respecto al mes anterior">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Ventas</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]" aria-label="7 mil 690 euros">€7,690</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">22%</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
@@ -88,10 +188,10 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">ingresos brutos · 3 productos</p>
                 </li>
 
-                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Comisión 15 por ciento: mil 154 euros, subió 22%">
+                <li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Comisión 15 por ciento: mil 154 euros, subió 22%">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Comisión 15%</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">€1,154</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">22%</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
@@ -99,10 +199,10 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">tus ganancias · 15% comisión</p>
                 </li>
 
-                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto A 50 euros: 45 unidades vendidas, subió 8%">
+                <li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto A 50 euros: 45 unidades vendidas, subió 8%">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto A (50€)</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">45 uds</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">8%</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
@@ -110,10 +210,10 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">€2,250 en ventas · comisión €338</p>
                 </li>
 
-                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto B 120 euros: 22 unidades vendidas, subió 15%">
+                <li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto B 120 euros: 22 unidades vendidas, subió 15%">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto B (120€)</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">22 uds</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">15%</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
@@ -121,10 +221,10 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">€2,640 en ventas · comisión €396</p>
                 </li>
 
-                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto C 80 euros: 35 unidades vendidas, subió 12%">
+                <li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto C 80 euros: 35 unidades vendidas, subió 12%">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Producto C (80€)</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">35 uds</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">12%</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
@@ -132,10 +232,10 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">€2,800 en ventas · comisión €420</p>
                 </li>
 
-                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ticket Medio: 75 euros con 40 céntimos, subió 3%">
+                <li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Ticket Medio: 75 euros con 40 céntimos, subió 3%">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">Ticket Medio</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">€75.40</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">3%</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">vs mes ant.</span>
@@ -143,10 +243,10 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">precio medio por unidad</p>
                 </li>
 
-                <li class="snap-start shrink-0 w-[70vw] sm:w-auto bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto Estrella: Producto C con 2 mil 800 euros en ventas">
+                <li class="bg-[#3E6D9C] rounded-xl shadow-sm border border-[#5FB0C9] p-4 sm:p-5 text-center sm:text-left focus:outline-none focus:ring-2 focus:ring-[#A7E0DB]" tabindex="0" aria-label="KPI Producto Estrella: Producto C con 2 mil 800 euros en ventas">
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] uppercase font-semibold tracking-wider">⭐ Producto Estrella</p>
                     <p class="text-xl sm:text-2xl font-bold mt-0.5 sm:mt-1 text-[#E3F6F5]">Prod. C</p>
-                    <div class="flex items-center gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 text-[10px] sm:text-xs text-[#5FB0C9] mt-0.5 sm:mt-1">
                         <span aria-hidden="true">↑</span>
                         <span class="font-semibold">€2,800</span>
                         <span class="text-[#A7E0DB] hidden xs:inline">en ventas</span>
@@ -154,8 +254,6 @@
                     <p class="text-[10px] sm:text-xs text-[#A7E0DB] mt-0.5 sr-only sm:not-sr-only">producto que más vende · 80€/ud</p>
                 </li>
             </ul>
-            <!-- Indicador de scroll (solo móvil) -->
-            <p class="text-[10px] text-[#A7E0DB] text-center mt-2 sm:hidden animate-pulse" aria-hidden="true">← Desliza para ver más →</p>
         </section>
 
         <!-- Separador visual entre Bloques 1 y 2 -->
@@ -485,8 +583,8 @@
                     <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
                         <span aria-hidden="true">🏷️</span> Productos
                     </h3>
-                    <div class="overflow-x-auto -mx-4 sm:mx-0">
-                        <div class="inline-block min-w-full align-middle px-4 sm:px-0">
+                    <div class="overflow-x-auto">
+                        <div class="inline-block min-w-full align-middle">
                             <table class="min-w-full text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de productos con precio, unidades, ingresos y comisión">
                                 <thead>
                                     <tr class="border-b border-[#5FB0C9]/30 text-[#A7E0DB] uppercase">
@@ -530,8 +628,8 @@
                     <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
                         <span aria-hidden="true">📱</span> Plataformas
                     </h3>
-                    <div class="overflow-x-auto -mx-4 sm:mx-0">
-                        <div class="inline-block min-w-full align-middle px-4 sm:px-0">
+                    <div class="overflow-x-auto">
+                        <div class="inline-block min-w-full align-middle">
                             <table class="min-w-full text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de plataformas con ventas, unidades y comisión">
                                 <thead>
                                     <tr class="border-b border-[#5FB0C9]/30 text-[#A7E0DB] uppercase">
@@ -582,9 +680,9 @@
                     <h3 class="text-sm font-bold text-[#E3F6F5] mb-3 pb-2 border-b border-[#5FB0C9]">
                         <span aria-hidden="true">📢</span> Producto Favorito x Plataforma
                     </h3>
-                    <div class="overflow-x-auto -mx-4 sm:mx-0">
-                        <div class="inline-block min-w-full align-middle px-4 sm:px-0">
-                            <table class="min-w-[320px] text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de qué producto se vende más en cada plataforma">
+                    <div class="overflow-x-auto">
+                        <div class="inline-block min-w-full align-middle">
+                            <table class="min-w-full text-[10px] sm:text-xs text-[#E3F6F5]" aria-label="Tabla de qué producto se vende más en cada plataforma">
                                 <thead>
                                     <tr class="border-b border-[#5FB0C9]/30 text-[#A7E0DB] uppercase">
                                         <th scope="col" class="text-left py-2 pr-2 font-semibold">Plataforma</th>
